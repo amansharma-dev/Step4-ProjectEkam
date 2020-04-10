@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Step4-ProjectEkam</string>
+    <string name="enter_review">Enter Review</string>
+    <string name="review">Review</string>
+    <string name="comment">Comment</string>
+    <string name="background_1">Background 1</string>
+    <string name="background_2">Background 2</string>
+    <string name="change_background">Change Background</string>
 </resources>
