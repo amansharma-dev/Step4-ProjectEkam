@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+
+import com.example.step4_projectekam.Util.Pref;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView reviewText;
     private CardView cardView;
     private Button backgroundOne;
+    private Pref pref;
 
 
     @Override
@@ -32,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         comment.setOnClickListener(this);
         backgroundOne.setOnClickListener(this);
 
+        pref = new Pref(MainActivity.this);
+
+        reviewText.setText(pref.getReview());
+        Log.d("GETREVIEW", "onCreate: "+pref.getReview());
         setActivityBackgroundColor(getResources().getColor(R.color.colorBackgroundOne));
     }
 
@@ -42,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.comment_Button:
                 String comment = enterReview.getText().toString();
                 reviewText.setText(comment);
+                pref.saveReview(comment);
                 break;
 
             case R.id.changeBackgroundColor_button:
