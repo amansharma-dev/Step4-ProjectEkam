@@ -69,15 +69,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.bgToRed_button:
-                setActivityBackgroundColor(getResources().getColor(REDCOLOR));
-                pref.setState(getResources().getColor(REDCOLOR));
-                Log.d("COLORBUTTON", "onClick: "+getResources().getColor(REDCOLOR)+" red color");
+                if(pref.getState() != getResources().getColor(REDCOLOR)){
+                    setActivityBackgroundColor(getResources().getColor(REDCOLOR));
+                    pref.setState(getResources().getColor(REDCOLOR));
+                    Log.d("COLORBUTTON", "onClick: "+getResources().getColor(REDCOLOR)+" red color");
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"ALREADY SELECTED ! \n Choose BLUE",Toast.LENGTH_LONG).show();
+                }
                 break;
 
             case R.id.bgToBlue_button:
-                setActivityBackgroundColor(getResources().getColor(BLUECOLOR));
-                pref.setState(getResources().getColor(BLUECOLOR));
-                Log.d("COLORBUTTON", "onClick: "+getResources().getColor(BLUECOLOR)+" blue");
+                if(pref.getState() != getResources().getColor(BLUECOLOR)){
+                    //Log.d("COLOR", "onClick: "+BLUECOLOR);
+                    setActivityBackgroundColor(getResources().getColor(BLUECOLOR));
+                    pref.setState(getResources().getColor(BLUECOLOR));
+                    Log.d("COLORBUTTON", "onClick: "+getResources().getColor(BLUECOLOR)+" blue");
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"ALREADY SELECTED ! \n Choose RED",Toast.LENGTH_LONG).show();
+                }
                 break;
         }
     }
