@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.core.content.ContextCompat;
+
+import com.example.step4_projectekam.R;
+
 public class Pref {
 
     private SharedPreferences sharedPreferences;
@@ -18,5 +22,13 @@ public class Pref {
 
     public String getReview(){
         return sharedPreferences.getString("new_review","");
+    }
+
+    public void setState(int color){
+        sharedPreferences.edit().putInt("bg_color",color).apply();
+    }
+
+    public int getState(){
+        return sharedPreferences.getInt("bg_color", 0);
     }
 }
